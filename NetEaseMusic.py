@@ -588,27 +588,3 @@ class NetEaseWrapper(threading.Thread):
         self.is_stop = True
         self.playlist = []
         self.notify()
-
-
-class MIC():
-
-    def say(self, text):
-        print text
-
-
-if __name__ == "__main__":
-    mic = MIC()
-    profile = {
-        "netease_music": {
-            "account": "18116601024",
-            "password": "shark.526",
-            "report": "true",
-            "local_path": "/Users/weberyu/Documents/develop/music/",
-            "local_default": True,
-            "local_shuffle": True,
-
-
-        }
-
-    }
-    handle("播放音乐", mic, profile)
