@@ -11,10 +11,7 @@ import re
 import random
 from MusicBoxApi import api as NetEaseApi
 import eyed3
-<<<<<<< HEAD
 from random import shuffle
-=======
->>>>>>> b9a1528d3fa7b4467805e52468d8d07777a8c6de
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -390,7 +387,6 @@ class NetEaseWrapper(threading.Thread):
         for (dirpath, dirnames, filenames) in os.walk(local_path):
             # f.extend(filenames)
             for filename in filenames:
-<<<<<<< HEAD
                 try:
                     # only mp3 accept
                     if os.path.splitext(filename)[1] != ".mp3":
@@ -423,26 +419,6 @@ class NetEaseWrapper(threading.Thread):
         if 'local_shuffle' in self.profile[SLUG]:
             if self.profile[SLUG]['local_shuffle']:
                 shuffle(playlist)
-=======
-                # only mp3 accept
-                if os.path.splitext(filename)[1] != ".mp3":
-                    continue
-                # read mp3 properties and add to the playlist
-                mp3_path = dirpath + filename
-                audiofile = eyed3.load(mp3_path)
-                music_info = {}
-                music_info.setdefault("song_id", audiofile.tag.track_num[0])
-                music_info.setdefault("song_name", audiofile.tag.title)
-                music_info.setdefault("artist", audiofile.tag.artist)
-                music_info.setdefault("album_name", audiofile.tag.album)
-                music_info.setdefault("mp3_url", "'{}'".format(mp3_path))
-                music_info.setdefault("playTime", int(
-                    audiofile.info.time_secs) * 1000)
-                music_info.setdefault("quality", "")
-                playlist.append(music_info)
-            break
-
->>>>>>> b9a1528d3fa7b4467805e52468d8d07777a8c6de
         return playlist
 
     def get_top_songlist(self):  # 热门单曲
